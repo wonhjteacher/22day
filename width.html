@@ -8,7 +8,7 @@
         #outer{width: 400px;height:300px;background: #690;margin: 100px;padding: 50px;border:5px solid red; overflow: scroll;transform: scale(0.5);}
         
     </style>
-    
+   <script src='js/width.js' defer></script>
 
 </head>
 <body>
@@ -22,30 +22,7 @@
     It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
 
     </div>
-    <script>
-        const winScreen  = window.screen.height ; 
-        const winOuter = window.outerHeight;
-        const winInner = window.innerHeight; 
-
-        const outer = document.querySelector('#outer')
-        const box1 = outer.clientHeight; // padding 까지 포함한 넓이 
-        const box2 = outer.offsetWidth; //border 까지 포함한 넓이 
-        const box3 = outer.scrollHeight; //가시적인 부분의 넓이가 아닌  컨텐츠 영역의 크기를 가지고 온다. 
-        const box4 = outer.getBoundingClientRect().width; //  offsetWidth 같다  (단 트랜트폼 사용시 랜더링 된 사이즈를 받기 때문에 offset과 다르다 )
-        /* console.log(winScreen)
-        console.log(winOuter)
-        console.log(winInner) */
-        console.log(box1)
-        console.log(box2)
-        console.log(box3)
-        console.log(box4)
-
-
-
-
-
-
-   </script>
+    
 </body>
 </html>
 
