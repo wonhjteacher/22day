@@ -20,7 +20,7 @@ body{background: url(../img/halloween/bg.png) fixed;}
 .cover{height: 530px;background: url(../img/halloween/cover.png) no-repeat;}
 .cover h1{margin: 30px}
 .cover .gnb{width: 960px;background: rgba(0,0,0,0.75);position: absolute;left:50%;bottom:0;transform: translateX(-50%)}
-.cover .gnb.fix{position:fixed;top:0;z-index: 1000;bottom: auto}
+.cover .gnb.fix{position:fixed;top:0;z-index: 1000;bottom:auto}
 
 .cover .gnb li{float: left}
 .cover .gnb li a{display: block;padding: 0 20px;height: 50px;line-height: 50px;font-size: 20px;color:#fff}

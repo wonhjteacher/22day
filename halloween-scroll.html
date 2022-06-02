@@ -8,9 +8,6 @@
         html{scroll-behavior: smooth;}
         .gnb li a{pointer-events: none;}
     </style>
-    
- 
-    selectedSectionColor
 </head>
 <body>
 <div id="wrapper">
@@ -60,9 +57,42 @@
     </div>
     <!--//devil-->
     <script>
-     
-    
+      const gnb=document.querySelector('.gnb');
+      const gnbli=document.querySelectorAll('.gnb li');
+      const section=document.querySelectorAll('.section');
+      const gnbPos=gnb.getBoundingClientRect().top;
+      console.log(gnbPos);
+      // gnb 스크롤시 상단 고정 
+      const gnbFix = () => {
+         const nowScroll = document.documentElement.scrollTop; //#1
+         if(nowScroll>gnbPos){
+            gnb.classList.add('fix')
+         }else{
+            gnb.classList.remove('fix')
+         }
+      }
+
+      window.addEventListener('scroll',gnbFix)
+   
+      gnb.addEventListener('click',(e) => {
+        const selected = e.target;
+        const index=selected.dataset.index;
+        const sectionPos = section[index].getBoundingClientRect().top;
+        console.log(sectionPos)
+        window.scrollBy(0, sectionPos)
+      })
+
+       
+      
+   
     </script>
+
+    <!-- 
+    #1 같은값 출력 
+         const nowScroll = document.documentElement.scrollTop;
+         const nowScroll= window.pageYOffset;
+         const nowScroll= window.scrollY;
+     -->
 </div>    
 </body>
 </html>

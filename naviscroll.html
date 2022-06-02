@@ -35,8 +35,30 @@
     <div class="section" id="section3"><h1>section3</h1></div>
     <div class="section" id="section4"><h1>section4</h1></div>
     <script>
-    
-       
+        const navi = document.querySelector('#navi');
+        const naviList = document.querySelectorAll('#navi li');
+        const section = document.querySelectorAll('.section');
+        const mid = window.innerHeight/2 - navi.offsetHeight/2 ; 
+        //navi 초기 top 값 
+        navi.style.top  = `${mid}px`
+        //스크롤시 네비 위치 
+        window.addEventListener('scroll',() => {
+            const nowScroll = window.scrollY;
+            const targetPos= nowScroll + mid;
+            navi.style.top=`${targetPos}px`;
+        })
+       //클릭시 해당 섹션으로 스크롤
+        navi.addEventListener('click',(e)=>{
+            naviList.forEach((li)=>{
+                 li.classList.remove('on')
+            })
+            e.target.classList.add('on') 
+            const index=e.target.dataset.index;
+            const targetPos = section[index].getBoundingClientRect().top;
+            window.scrollBy(0,targetPos)
+        })
+               
+
     </script>
 </body>
 </html>
