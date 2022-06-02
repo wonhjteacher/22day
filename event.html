@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import 'css/reset.css';
+        ul{display: flex;margin: 50px auto 0;width: 300px;padding:100px;background: green;}
+        li a{display: block;width: 100px;height: 50px;
+            background-color: brown;color:#fff;
+        text-align: center;line-height: 50px;}
+
+
+    </style>
+</head>
+<body>
+    <ul class='listbox'>
+        <li class='list' data-num='0'><a href="#" class='list_a'>메뉴1</a></li>
+        <li class='list' data-num='1'><a href="#" class='list_a'>메뉴2</a></li>
+        <li class='list' data-num='2'><a href="#" class='list_a'>메뉴3</a></li>
+    </ul>
+    <script>
+        const listbox = document.querySelector('.listbox')
+        const body = document.querySelector('body')
+
+        listbox.addEventListener('click',(e) =>{
+                let  selected = e.target;
+                
+                while(!selected.classList.contains('list')){
+                    selected = selected.parentNode;
+                  if(selected.tagName=='BODY'){
+                        selected=null;
+                        return;
+                    }
+                }
+                console.log(selected.dataset.num)
+        })
+       
+        
+
+    </script>
+</body>
+</html>
