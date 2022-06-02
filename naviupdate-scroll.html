@@ -18,11 +18,8 @@
         .box3{background-color: #f46200}
         .box4{background-color: #bb2c33}
         .box5{background-color: #cc9384}
-
-
     </style>
-   
-    
+
 </head>
 <body>
  <h1 class="logo">toy</h1>
@@ -40,30 +37,30 @@
  <div class="section box5"></div>
 
  <script>
-    const gnb=document.querySelector('.gnb');
-    const gnbli=document.querySelectorAll('.gnb li');
-    const gnbPos=gnb.getBoundingClientRect().top;
-    const section=document.querySelectorAll('.section');
-    
-     gnb.addEventListener('click',(e)=>{
-            const selected = e.target;
-            const index=selected.dataset.index;
-            const selectedSection=section[index];
-            const sectionPos = selectedSection.getBoundingClientRect().top;
-            const sectionColor = window.getComputedStyle(selectedSection).backgroundColor;
-            console.log(sectionPos)
-            console.log(sectionColor )
-            window.scrollBy(0, sectionPos)
-            updateListColor(selected,sectionColor)
-        })
+     const gnb = document.querySelector('.gnb');
+     const gnbMenu= document.querySelectorAll('.gnb li');
+     const section = document.querySelectorAll('.section');
      
-        const updateListColor = (selected,sectionColor) =>{
-            gnbli.forEach((li)=>{
-                li.style.color='#999';
-            })
-            selected.style.color=sectionColor;
-           
-        }
+    const sectionScroll = (e) => {
+        const selected = e.target ; 
+        const index = selected.dataset.index;
+        const selectedSection = section[index]
+        const selectedSectionPos =selectedSection.getBoundingClientRect().top;
+        window.scrollBy(0,selectedSectionPos)
+        const selectedSectionColor = window.getComputedStyle(selectedSection).backgroundColor;
+        //메뉴색상 업데이트 함수호출 
+        updateMenuColor(selected,selectedSectionColor)
+    }
+
+    const updateMenuColor=(selected,selectedSectionColor)=>{
+        gnbMenu.forEach((ele)=>{
+            ele.style.color='#999'
+        })
+        selected.style.color=selectedSectionColor;
+    }
+
+    gnb.addEventListener('click',sectionScroll)
+ </script>
 </script>
 </body>
 </html>

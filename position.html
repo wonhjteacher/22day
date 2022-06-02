@@ -5,8 +5,8 @@
     <title>Document</title>
     <style>
         @import url(css/reset.css);
-        #outer{width: 400px;height: 400px;background: #f00;position: relative;margin: 100px auto;}
-        #inner{width: 200px;height: 200px;background: #000;position: absolute;top:50px;left:100px}
+        #outer{width: 400px;height: 400px;background: #f00;margin: 100px auto;position: relative;}
+        #inner{width: 200px;height: 200px;background: #000;position: absolute;top:150px;left:100px}
         
     </style>
   
@@ -17,6 +17,37 @@
         <div id="inner"></div>
     </div> 
     <script>
+          const inner= document.querySelector('#inner') ;
+          const outer= document.querySelector('#outer') ;
+          const posTop = inner.getBoundingClientRect().top ;
+          const posLeft = inner.getBoundingClientRect().left ;
+          const offsetTop = inner.offsetTop; // css 포지션 정책 대로 top ,left 위치 값 받아온다 
+          const offsetLeft = inner.offsetLeft; 
+          console.log(posTop);
+          console.log(posLeft);
+          console.log(offsetTop);
+          console.log(offsetLeft);
+
+         console.log(window.pageYOffset);
+         console.log(window.scrollY);
+
+         console.log(window.scrollY + posTop);
+
+         //window.scrollY + element.getBoundingClientRect().top ; 
+         //window.pageYOffset + element.getBoundingClientRect().top ; 
+        // 해당 엘러먼트의 절대 좌표 구하기 
+
+        function getPosTop(ele) {
+            return window.scrollY + ele.getBoundingClientRect().top ; 
+        }
+
+
+        const posCalc1=getPosTop(inner)
+        const posCalc2=getPosTop(outer)
+
+        console.log(posCalc1)
+        console.log(posCalc2)
+
 
     </script>
 </body>

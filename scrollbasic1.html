@@ -9,7 +9,7 @@
     <style>
         * {
             box-sizing: border-box;
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; 
             margin: 0;padding:0;
         }
 
@@ -58,7 +58,25 @@
         <div class="item"></div>
     </div>
     <script>
-  
+        const btns = document.querySelector('.btns');
+        const body = document.querySelector('body');
+        const scrollAni = (e) =>{ 
+            if(e.target.dataset.direction === 'bottom50'){
+                window.scrollBy(0,50);
+            }else if(e.target.dataset.direction === 'top50'){
+                window.scrollBy(0,-50);
+            }else if(e.target.dataset.direction === '750'){
+                window.scrollTo(0,750)
+            }
+            else if(e.target.dataset.direction === 'top'){
+                window.scrollTo(0,0)
+            }
+            else if(e.target.dataset.direction === 'bottom'){
+                window.scrollTo(0,body.scrollHeight)
+            }
+        }
+
+        btns.addEventListener('click',scrollAni)
     </script>
 </body>
 
